@@ -1,0 +1,185 @@
+{
+    "numFound": 9,
+    "start": 0,
+    "numFoundExact": true,
+    "num_found": 9,
+    "documentation_url": "https://openlibrary.org/dev/docs/api/search",
+    "q": "the subtle art of not giving a fuck",
+    "offset": null,
+    "docs": [
+        {
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2016,
+            "has_fulltext": false,
+            "key": "/works/OL36500883W",
+            "public_scan_b": false,
+            "title": "The subtle art of not giving a fuck"
+        },
+        {
+            "author_key": [
+                "OL10902364A"
+            ],
+            "author_name": [
+                "Tamil Thiyan"
+            ],
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2019,
+            "has_fulltext": false,
+            "key": "/works/OL30318856W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "50 Fuck of Quotes from the SUBTLE ART of NOT GIVING a Fuck"
+        },
+        {
+            "author_key": [
+                "OL10902364A"
+            ],
+            "author_name": [
+                "Tamil Thiyan"
+            ],
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2019,
+            "has_fulltext": false,
+            "key": "/works/OL30355761W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "18 Inspirational Quotes from the Subtle Art of Not Giving a Fuck"
+        },
+        {
+            "author_key": [
+                "OL2964000A",
+                "OL13502820A"
+            ],
+            "author_name": [
+                "Mark Manson",
+                "Mark Manson"
+            ],
+            "cover_i": 8231990,
+            "ebook_access": "borrowable",
+            "edition_count": 44,
+            "first_publish_year": 2016,
+            "has_fulltext": true,
+            "ia": [
+                "sutilartedeligar0000mark",
+                "lartsubtildesenf0000mark",
+                "subtleartofnotgi0000mans_n2n5",
+                "elsutilartedeque0000mans",
+                "subtleartofnotgi0000mans_h2r6"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL17590212W",
+            "language": [
+                "por",
+                "alb",
+                "eng",
+                "spa",
+                "ger",
+                "fre",
+                "nob",
+                "tur",
+                "rus"
+            ],
+            "lending_edition_s": "OL26948417M",
+            "lending_identifier_s": "sutilartedeligar0000mark",
+            "public_scan_b": false,
+            "title": "The Subtle Art of Not Giving a F*ck"
+        },
+        {
+            "author_key": [
+                "OL10867122A"
+            ],
+            "author_name": [
+                "Sapiens Editorial"
+            ],
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL29458740W",
+            "language": [
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Resumen de el Sutil Arte de Que Te Importe un Carajo (the Subtle Art of Not Giving a Fuck) - de Marc Manson"
+        },
+        {
+            "author_key": [
+                "OL7798859A"
+            ],
+            "author_name": [
+                "Start Publishing Notes"
+            ],
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2017,
+            "has_fulltext": false,
+            "key": "/works/OL27117933W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Summary, Analysis, and Review of Mark Manson's the Subtle Art of Not Giving a Fuck"
+        },
+        {
+            "author_key": [
+                "OL10867122A"
+            ],
+            "author_name": [
+                "Sapiens Editorial"
+            ],
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL29667337W",
+            "language": [
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Resumen de el Sutil Arte de Que No Te Importe Nada (the Subtle Art of Not Giving a F*uck) - de Mark Manson"
+        },
+        {
+            "author_key": [
+                "OL2964000A",
+                "OL10271722A"
+            ],
+            "author_name": [
+                "Mark Manson",
+                "Dan Meredith"
+            ],
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL27419964W",
+            "public_scan_b": false,
+            "title": "the subtle art of not giving a fuck [hardcover] and how to be fucking awesome 2 books collection set - a counterintuitive approach to living a good life"
+        },
+        {
+            "author_key": [
+                "OL10904448A"
+            ],
+            "author_name": [
+                "Libros Mentores"
+            ],
+            "cover_edition_key": "OL40960859M",
+            "cover_i": 14551284,
+            "ebook_access": "no_ebook",
+            "edition_count": 1,
+            "first_publish_year": 2019,
+            "has_fulltext": false,
+            "key": "/works/OL29782526W",
+            "language": [
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Resumen Extendido de el Sutil Arte de Que Te Importe un Carajo (the Subtle Art of Not Giving a Fuck) - Basado en el Libro de Mark Manson"
+        }
+    ]

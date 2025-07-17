@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate') %>
+<h1></h1>
+<% for (let season of seasons) { %> <% if (season.premiereDate) { %>
+
+<div class="card mb-3 p-3" style="overflow-y: auto">
+  <div class="row">
+    <div class="col-md-4">
+      <% if (season.image) { %>
+      <img
+        src="<%= season.image.medium %>"
+        class="card-img-top rounded"
+        alt="..."
+        style="width: 300px"
+      />
+      <% } %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title fs-3 fw-bold">Season <%= season.number %></h5>
+        <div class="display-5 fs-4"><%- season.summary %></div>
+      </div>
+      <a href="/seasons/<%=season.id%>/episodes" class="btn btn-info"
+        >View Episodes</a
+      >
+    </div>
+  </div>
+</div>
+
+<% } %><% } %>

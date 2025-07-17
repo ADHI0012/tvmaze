@@ -1,0 +1,33 @@
+<% layout('layouts/boilerplate') %> <% for (let episode of episodes) { %>
+<div class="card p-3 mb-3 mt-2 text-light bg-dark">
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="card-img-top"
+        src="<%= episode.image.medium %>"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">
+          Episode <%= episode.number %>: <%= episode.name %>
+        </h5>
+        <div class="card-text fs-4">
+          <p><%- episode.summary %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% } %>
+<style>
+  body {
+    background-image: url("https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQavW2NsPoRMpRHtA9QrkRartIDbya5GDWj9uAjmtlkC7PSIMKoQ5QJ3k8SnlnKScjniyV7H0Owxjd7-CVxX3BCawy4K-8b0z_h8sEqbi4Rh1nMGhqVWa1RLbUXlW3SzGLnruqO1sjjiw5oeLqri7MtL3HDU.jpg?r=de5");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* color: white; */
+  }
+</style>

@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate') -%>
+<div class="container">
+  <div class="card p-4 m-4 bg-dark-subtle">
+    <div class="row">
+      <div class="col-md-4">
+        <h1><%= bestMatch.show.name %></h1>
+        <img
+          class="img-fluid rounded-3 shadow m-4"
+          src="<%=bestMatch.show.image.medium %>"
+          alt="poster_of_<%= bestMatch.show.name %>"
+        />
+      </div>
+      <div class="col-md-8">
+        <h2>Details</h2>
+        <div class="lead"><%- bestMatch.show.summary%></div>
+
+        <% for (let genre of bestMatch.show.genres) { %>
+        <span class="badge bg-secondary mb-2"><%= genre %></span>
+        <% } %>
+        <p>
+          <a class="btn btn-primary" href="<%= bestMatch.show.officialSite %>"
+            >Official Site</a
+          >
+        </p>
+        <p>
+          <span class="badge bg-dark text-light p-2"
+            >Rating: <%= bestMatch.show.rating.average %>/10</span
+          >
+        </p>
+        <!-- <p>
+          <a class="btn btn-info" href="/<%= bestMatch.show.id %>/images"
+            >Posters</a
+          >
+        </p> -->
+        <a class="btn btn-success" href="/<%= bestMatch.show.id %>/cast"
+          >View Cast</a
+        >
+        <a href="/<%= bestMatch.show.id %>/seasons" class="btn btn-warning ms-3"
+          >Seasons</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="d-flex flex-wrap gap-5 justify-content-around mt-4">
+  <% for (let member of castDetails) { %>
+  <div class="">
+    <% if(member.person.image) { %>
+    <img
+      class="img-fluid rounded mb-2"
+      src="<%=member.person.image.medium %>"
+      alt=""
+    />
+    <% } %>
+    <a
+      class="d-block text-center text-light text-decoration-none"
+      href="<%=member.person.url %>"
+      ><%= member.person.name %></a
+    >
+  </div>
+  <% } %>
+</div>
