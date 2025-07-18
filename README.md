@@ -6,3 +6,4 @@
 - Express + EJS
 - TVMaze API
 - Axios
+- Bootstrap
