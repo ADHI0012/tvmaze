@@ -1,11 +1,15 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const utils = require("./utils");
 const engine = require("ejs-mate");
 const app = express();
+const path = require("path");
 
 app.set("view engine", "ejs");
 app.engine("ejs", engine);
+app.set("views", path.join(__dirname, "views"));
+
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.render("home");
