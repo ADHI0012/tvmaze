@@ -92,8 +92,25 @@ app.post("/register", async (req, res) => {
     res.redirect("/");
   } catch (e) {
     req.flash("error", "Something went wrong :(");
+    res.redirect("/register");
   }
 });
+
+app.get("/login", (req, res) => {
+  res.render("users/login");
+});
+
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    failureFlash: true,
+    failureRedirect: "/login",
+  }),
+  (req, res) => {
+    req.flash("success", "Welcome to TvMaze !");
+    res.redirect("/");
+  }
+);
 
 app.listen(3000, () => {
   console.log("LISTENING ON PORT 3000");
