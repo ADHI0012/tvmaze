@@ -29,4 +29,16 @@ async function getEpisodes(id) {
   return episodes.data;
 }
 
-module.exports = { getShow, getCast, getImages, getSeasons, getEpisodes };
+async function getShowById(id) {
+  const show = await axios.get(`https://api.tvmaze.com/shows/${id}`);
+  return show.data;
+}
+
+module.exports = {
+  getShow,
+  getCast,
+  getImages,
+  getSeasons,
+  getEpisodes,
+  getShowById,
+};

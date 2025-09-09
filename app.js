@@ -9,6 +9,8 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const flash = require("connect-flash");
+const Review = require("./models/reviews");
+const { isLoggedIn } = require("./middleware");
 
 mongoose
   .connect("mongodb://localhost:27017/TvMaze")
@@ -91,7 +93,7 @@ app.post("/register", async (req, res) => {
     req.flash("success", "You have successfully signed up :)");
     res.redirect("/");
   } catch (e) {
-    req.flash("error", "Something went wrong :(");
+    req.flash("error", "Username not available, try a different one !");
     res.redirect("/register");
   }
 });
@@ -111,6 +113,35 @@ app.post(
     res.redirect("/");
   }
 );
+
+app.post("/:id/reviews", isLoggedIn, async (req, res) => {
+  const id = Number(req.params.id);
+  console.log(req.user);
+  const { text } = req.body;
+  const review = new Review({ id, text });
+  review.user = req.user;
+  await review.save();
+  res.redirect(`/${id}/reviews`);
+});
+
+app.get("/:id/reviews", async (req, res, next) => {
+  const { id } = req.params;
+  const show = await utils.getShowById(id);
+  const reviews = await Review.find({ id }).populate("user");
+
+  // console.log(show);
+  res.render("reviews", { show, reviews });
+});
+
+app.get("/logout", (req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    req.flash("success", "Successfully Logged Out !");
+    res.redirect("/");
+  });
+});
 
 app.listen(3000, () => {
   console.log("LISTENING ON PORT 3000");

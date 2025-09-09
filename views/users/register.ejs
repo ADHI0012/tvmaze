@@ -12,10 +12,16 @@
     />
   </head>
   <body>
+    <%- include("../partials/flash") %>
     <div
       class="d-flex justify-content-center align-items-center vh-100 bg-blur"
     >
-      <form action="/register" method="POST" style="width: 25%">
+      <form
+        action="/register"
+        method="POST"
+        style="width: 30%"
+        class="form-control bg-dark border-dark"
+      >
         <ul class="list-group list-group-flush rounded-2">
           <li class="list-group-item bg-dark text-white border-0">
             <h3 class="display-5">Sign Up</h3>

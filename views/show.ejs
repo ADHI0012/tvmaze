@@ -38,7 +38,29 @@
         <a href="/<%= bestMatch.show.id %>/seasons" class="btn btn-warning ms-3"
           >Seasons</a
         >
+        <div class="d-flex justify-content-end">
+          <a href="/<%=bestMatch.show.id%>/reviews"
+            ><p class="d-inline-block ms-auto text-dark">View Reviews</p></a
+          >
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-3">
+    <div class="form-group">
+      <label for="reviewText" class="form-label">Add a Review</label>
+      <form action="/<%=bestMatch.show.id %>/reviews" method="POST">
+        <textarea
+          class="form-control"
+          id="reviewText"
+          rows="3"
+          cols="2"
+          name="text"
+        ></textarea>
+        <button class="btn btn-success d-inline-block m-2">Submit</button>
+      </form>
     </div>
   </div>
 </div>
