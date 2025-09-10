@@ -10,7 +10,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const flash = require("connect-flash");
 const Review = require("./models/reviews");
-const { isLoggedIn } = require("./middleware");
+const { isLoggedIn, storeReturnTo } = require("./middleware");
 
 mongoose
   .connect("mongodb://localhost:27017/TvMaze")
@@ -104,13 +104,16 @@ app.get("/login", (req, res) => {
 
 app.post(
   "/login",
+  storeReturnTo,
   passport.authenticate("local", {
     failureFlash: true,
     failureRedirect: "/login",
   }),
   (req, res) => {
+    const redirectUrl = res.locals.returnTo || "/";
+    delete req.session.returnTo;
     req.flash("success", "Welcome to TvMaze !");
-    res.redirect("/");
+    res.redirect(redirectUrl);
   }
 );
 
