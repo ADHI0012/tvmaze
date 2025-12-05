@@ -30,18 +30,19 @@ app.use(express.static("public"));
 
 app.use(session({ secret: "thisisasecret" }));
 app.use(flash());
-app.use((req, res, next) => {
-  res.locals.success = req.flash("success");
-  res.locals.error = req.flash("error");
-  next();
-});
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.currentUser = req.user || null;
+  // console.log(res.locals.currentUser);
+  next();
+});
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -51,9 +52,10 @@ app.get("/shows", async (req, res) => {
   const { show } = req.query;
   const showDetails = await utils.getShow(show);
   if (!showDetails.length) {
-    return res.send("No results found.");
+    return res.render("notfound");
   }
   const bestMatch = showDetails[0];
+  console.log(bestMatch);
   res.render("show", { bestMatch });
 });
 
@@ -95,6 +97,37 @@ app.post("/register", async (req, res) => {
   } catch (e) {
     req.flash("error", "Username not available, try a different one !");
     res.redirect("/register");
+  }
+});
+
+app.get("/:user/favorites", isLoggedIn, async (req, res) => {
+  const { user } = req.params;
+  const u = await User.findOne({ username: user });
+  const favoritesWithData = await Promise.all(
+    u.favorites.map(async function (fav) {
+      return utils.getShowById(fav);
+    })
+  );
+  // console.log(typeof favoritesWithData);
+  console.log(favoritesWithData);
+  res.render("favorites", { favorites: favoritesWithData });
+});
+
+app.post("/favorites/add", async (req, res) => {
+  const showId = String(req.body.id);
+  if (req.user) {
+    const user = await User.findById(req.user._id);
+    if (user.favorites.includes(showId)) {
+      req.flash("error", "This show is already part of your favorites!");
+      res.redirect(`/${user.username}/favorites`);
+      return;
+    }
+    user.favorites.push(showId);
+    await user.save();
+    res.redirect("/");
+  } else {
+    req.flash("error", "You must be logged in !!");
+    res.redirect("/login");
   }
 });
 
@@ -144,6 +177,14 @@ app.get("/logout", (req, res, next) => {
     req.flash("success", "Successfully Logged Out !");
     res.redirect("/");
   });
+});
+
+app.get("/favorites/remove/:showId", isLoggedIn, async (req, res) => {
+  const { showId } = req.params;
+  const user = await User.findOne({ username: req.user.username });
+  user.favorites = user.favorites.filter((id) => id != showId);
+  await user.save();
+  res.redirect(`/${req.user.username}/favorites`);
 });
 
 app.listen(3000, () => {

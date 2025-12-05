@@ -8,6 +8,8 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+  // store favorite show IDs (as strings) by default
+  favorites: { type: [String], default: [] }
 });
 
 userSchema.plugin(passportLocalMongoose);

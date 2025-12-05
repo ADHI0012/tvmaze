@@ -1,17 +1,22 @@
 <%- layout('layouts/boilerplate') %>
 
-<h1 class="display-4 mb-4 mt-3"><%= show.name %></h1>
-<div class="row">
-  <div class="col-md-3">
-    <img
-      src="<%= show.image.medium %>"
-      alt=""
-      class="rounded float-left img-fluid"
-      style="width: 550px; height: 400px"
-    />
+<link rel="stylesheet" href="/css/reviewBgImage.css" />
+
+<div class="d-flex flex-column vh-100 align-items-center">
+  <div class="text-center my-4">
+    <p
+      class="text-uppercase mb-1"
+      style="color: #b0b0b0; letter-spacing: 2px; font-size: 0.9rem"
+    >
+      Reviews of
+    </p>
+    <h1 class="fw-bold" style="font-size: 2.5rem; color: white">
+      <%= show.name %>
+    </h1>
   </div>
-  <div class="col-md-9">
-    <h2 class="display-5">Popular Reviews</h2>
+  <hr class="border border-secondary opacity-50 w-75" />
+
+  <div class="mb-2">
     <% for (let review of reviews) { %>
     <div
       class="card mb-2 text-light"
@@ -19,10 +24,8 @@
     >
       <div class="card-body">
         <h5 class="card-title"><%=review.user.username %></h5>
-        <h6 class="card-subtitle mb-2" style="color: #f0f0f0">5 stars</h6>
+        <h6 class="card-subtitle mb-2" style="color: #f0f0f0">⭐⭐⭐⭐⭐</h6>
         <p class="card-text"><%= review.text %></p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
       </div>
     </div>
 

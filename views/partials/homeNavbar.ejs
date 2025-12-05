@@ -19,9 +19,13 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
+        <% if (currentUser) {%>
         <li class="nav-item">
-          <a class="nav-link" href="/favorites">Favorites</a>
+          <a class="nav-link" href="<%=currentUser.username%>/favorites"
+            >Favorites</a
+          >
         </li>
+        <% } %>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
@@ -43,16 +47,17 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" action="/shows">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          name="show"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <div class="d-flex justify-content-end text-white">
+        <% if (currentUser) { %>
+        <li class="nav-item text-light me-3 list-unstyled">
+          <%= currentUser.username %>
+        </li>
+        <a href="/logout" class="nav-link">Logout</a>
+        <% } else { %>
+        <a href="/register" class="nav-link me-4">Sign Up</a>
+        <a href="/login" class="nav-link me-4">Login</a> <% } %>
+      </div>
     </div>
   </div>
 </nav>
